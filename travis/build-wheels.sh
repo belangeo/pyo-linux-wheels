@@ -7,6 +7,7 @@ yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 # Compile wheels
 for PYBIN in /opt/python/*/bin; do
     #"${PYBIN}/pip" install -r /io/dev-requirements.txt
+    "${PYBIN}/python" /io/setup.py build_ext --use-double --use-jack
     "${PYBIN}/pip" wheel /io/ -w wheelhouse/
 done
 
