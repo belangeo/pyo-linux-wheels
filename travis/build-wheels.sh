@@ -2,7 +2,7 @@
 set -e -x
 
 # Install a system package required by our library
-yum install -y portaudio portmidi libsndfile liblo
+yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
 # Compile wheels
 for PYBIN in /opt/python/*/bin; do

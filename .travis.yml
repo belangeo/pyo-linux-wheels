@@ -1,6 +1,10 @@
 notifications:
   email: false
 
+env:
+  global:
+      - REPO_DIR=pyo
+      - BUILD_COMMIT=HEAD
 matrix:
   include:
     - sudo: required
