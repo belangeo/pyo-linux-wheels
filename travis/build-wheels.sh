@@ -4,7 +4,7 @@ set -e -x
 # Install a system package required by our library
 yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
-ls -al /usr/
+ls -al /usr/include
 
 # Compile wheels
 cd /io/pyo/
