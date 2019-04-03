@@ -4,7 +4,7 @@ notifications:
 env:
   global:
       - REPO_DIR=pyo
-      - BUILD_COMMIT=HEAD
+      - BUILD_COMMIT=master
 matrix:
   include:
     - sudo: required
