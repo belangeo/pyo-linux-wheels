@@ -2,6 +2,7 @@
 set -e -x
 
 # Install a system package required by our library
+yum update
 yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
 echo "test /usr/include"
