@@ -4,18 +4,16 @@ set -e -x
 # Install a system package required by our library
 yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
-ls -al io/
-
 # Compile wheels
 for PYBIN in /opt/python/*/bin; do
     #"${PYBIN}/pip" install -r /io/dev-requirements.txt
-    "${PYBIN}/python" /io/setup.py build_ext --use-double --use-jack
-    "${PYBIN}/pip" wheel /io/ -w wheelhouse/
+    "${PYBIN}/python" /io/pyo/setup.py build_ext --use-double --use-jack
+    "${PYBIN}/pip" wheel /io/pyo/ -w wheelhouse/
 done
 
 # Bundle external shared libraries into the wheels
 for whl in wheelhouse/*.whl; do
-    auditwheel repair "$whl" -w /io/wheelhouse/
+    auditwheel repair "$whl" -w /io/pyo/wheelhouse/
 done
 
 # Install packages and test
