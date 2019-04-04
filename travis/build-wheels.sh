@@ -3,7 +3,7 @@ set -e -x
 
 # Install a system package required by our library
 yum update
-yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
+yum install -y autogen portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
 cd /io/deps/
 tar -xvzf libsndfile-1.0.28.tar.gz
