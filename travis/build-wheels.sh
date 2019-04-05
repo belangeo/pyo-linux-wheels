@@ -2,7 +2,8 @@
 set -e -x
 
 # Install a system package required by our library
-#yum update
+#yum update 
+yum install -y guile-devel
 #yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
 cd /io/deps/
