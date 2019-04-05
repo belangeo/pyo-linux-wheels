@@ -15,6 +15,11 @@ make
 make install
 cd ..
 
+locate autogen
+which autogen
+locate python
+which python
+
 tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
 ./autogen.sh
