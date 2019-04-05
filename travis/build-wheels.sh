@@ -12,7 +12,7 @@ tar -xzf autogen-5.11.8.tar.gz
 cd autogen-5.11.8
 ./configure --prefix=/usr
 make
-sudo make install
+make install
 cd ..
 
 tar -xzf libsndfile-1.0.28.tar.gz
