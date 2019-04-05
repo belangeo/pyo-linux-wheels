@@ -2,11 +2,18 @@
 set -e -x
 
 # Install a system package required by our library
-yum update
-yum install -y autoconf autogen 
-#portaudio-devel portmidi-devel libsndfile-devel liblo-devel
+#yum update
+#yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
 cd /io/deps/
+
+tar -xzf autogen-5.11.8.tar.gz
+cd autogen-5.11.8
+./configure --prefix=/usr
+make
+sudo make install
+cd ..
+
 tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
 ./autogen.sh
