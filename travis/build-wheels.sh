@@ -15,8 +15,6 @@ make
 make install
 cd ..
 
-PATH = /usr/bin:$PATH
-
 tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
 ./autogen.sh
