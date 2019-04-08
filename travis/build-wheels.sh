@@ -6,7 +6,7 @@ set -e -x
 yum install -y guile-devel
 #yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
-PATH=/usr/lib:/opt:$PATH
+PATH=/usr/lib:$PATH
 
 cd /io/deps/
 
@@ -23,7 +23,7 @@ find / -name  python
 
 echo $PATH
 
-#/usr/bin/autogen
+python --version
 
 tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
