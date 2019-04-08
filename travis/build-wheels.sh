@@ -18,8 +18,8 @@ make install
 ldconfig
 cd ..
 
-find / -name autogen.h
-find / -name  Python.h
+#find / -name autogen.h
+find / -name  python
 
 echo $PATH
 
