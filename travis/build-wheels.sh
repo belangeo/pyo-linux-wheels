@@ -6,7 +6,7 @@ set -e -x
 yum install -y guile-devel
 #yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
-export PATH = /usr/lib:$PATH
+PATH=/usr/lib:$PATH
 
 cd /io/deps/
 
