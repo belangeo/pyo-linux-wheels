@@ -15,8 +15,10 @@ make
 make install
 cd ..
 
-find / -name autogen
-find / -name  python
+find / -name autogen.h
+find / -name  python.h
+
+echo $PATH
 
 tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
