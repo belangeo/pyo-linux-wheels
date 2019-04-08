@@ -6,6 +6,8 @@ set -e -x
 yum install -y guile-devel
 #yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
+export PATH = /usr/lib:$PATH
+
 cd /io/deps/
 
 tar -xzf autogen-5.11.8.tar.gz
@@ -13,6 +15,7 @@ cd autogen-5.11.8
 ./configure --prefix=/usr
 make
 make install
+ldconfig
 cd ..
 
 find / -name autogen.h
