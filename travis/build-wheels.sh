@@ -20,7 +20,7 @@ find / -name  Python.h
 
 echo $PATH
 
-/usr/bin/autogen --version
+/usr/bin/autogen
 
 tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
