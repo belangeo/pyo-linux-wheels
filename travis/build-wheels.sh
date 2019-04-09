@@ -86,7 +86,7 @@ cd ..
 echo ====== Build and install jack-audio-connection-kit. ======
 tar -xzf jack-audio-connection-kit-0.125.0.tar.gz
 cd jack-audio-connection-kit-0.125.0
-./configure --prefix=/usr
+./configure --prefix=/usr --enable-portaudio
 make
 make install
 ldconfig
