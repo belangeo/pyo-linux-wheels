@@ -75,7 +75,7 @@ ldconfig
 cd ..
 
 echo ====== Build and install portaudio. ======
-tar -xjf pa_stable_v190600_20161030.tgz
+tar -xzf pa_stable_v190600_20161030.tgz
 cd portaudio
 ./configure --prefix=/usr
 make
