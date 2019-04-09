@@ -3,7 +3,7 @@ set -e -x
 
 # Install a system package required by our library
 #yum update 
-yum install -y guile-devel zlib-devel
+yum install -y guile-devel zlib-devel db4-devel
 #yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
 PATH=/usr/lib:$PATH
