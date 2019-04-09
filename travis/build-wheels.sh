@@ -83,13 +83,13 @@ make install
 ldconfig
 cd ..
 
-echo ====== Build and install libffado. ======
-tar -xzf libffado-2.3.0.tgz
-cd libffado-2.3.0
-scons
-scons install
-ldconfig
-cd ..
+#echo ====== Build and install libffado. ======
+#tar -xzf libffado-2.3.0.tgz
+#cd libffado-2.3.0
+#scons
+#scons install
+#ldconfig
+#cd ..
 
 echo ====== Build and install jack-audio-connection-kit. ======
 tar -xzf jack-audio-connection-kit-0.125.0.tar.gz
