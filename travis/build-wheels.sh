@@ -121,8 +121,12 @@ cd ..
 # Compile wheels
 cd /io/pyo/
 for PYBIN in /opt/python/*/bin; do
+	if [ "$PYBIN" == "/opt/python/cp34-cp34m/bin" ]
+	then
+		continue
+	fi
     #"${PYBIN}/pip" install -r /io/dev-requirements.txt
-    "${PYBIN}/python" setup.py build_ext --minimal --use-double --use-jack --jack-force-old-api
+    "${PYBIN}/python" setup.py build_ext --minimal --use-double --use-jack
     "${PYBIN}/pip" wheel . -w wheelhouse/
 done
 
