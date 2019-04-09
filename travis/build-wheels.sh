@@ -23,9 +23,9 @@ find / -name  python
 
 echo $PATH
 
-/opt/python --version
+ln -s /opt/_internal/cpython-2.7.16-ucs4/bin/python /usr/bin/python
 
-python -V
+python --version
 
 tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
