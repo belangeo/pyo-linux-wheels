@@ -10,6 +10,7 @@ PATH=/usr/lib:$PATH
 
 cd /io/deps/
 
+echo ====== Build and install autogen. ======
 tar -xzf autogen-5.11.8.tar.gz
 cd autogen-5.11.8
 ./configure --prefix=/usr
@@ -18,18 +19,23 @@ make install
 ldconfig
 cd ..
 
-#find / -name autogen.h
-find / -name  python
-
-echo $PATH
-
+# python version in /usr/bin is 2.4, link to 2.7.
 rm /usr/bin/python
 ln -s /opt/_internal/cpython-2.7.16-ucs4/bin/python /usr/bin/python
 
-python --version
-
 export ACLOCAL_PATH=/usr/share/aclocal
 
+echo ====== Build and install libflac. ======
+tar -xzf flac-1.3.2.tar.gz
+cd flac-1.3.2
+./autogen.sh
+./configure --prefix=/usr
+make
+make install
+ldconfig
+cd ..
+
+echo ====== Build and install libsndfile. ======
 tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
 ./autogen.sh
