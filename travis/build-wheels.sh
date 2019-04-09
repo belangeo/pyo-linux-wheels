@@ -3,7 +3,7 @@ set -e -x
 
 # Install a system package required by our library
 #yum update 
-yum install -y guile-devel zlib-devel jack-audio-connection-kit
+yum install -y guile-devel zlib-devel jack-audio-connection-kit-devel
 #yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
 PATH=/usr/lib:$PATH
