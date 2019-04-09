@@ -8,6 +8,7 @@ yum install -y guile-devel pkg-config
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
+PKG_CONFIG_PATH=/usr/lib/pkgconfig:$PKG_CONFIG_PATH
 
 cd /io/deps/
 
@@ -53,10 +54,6 @@ make
 make install
 ldconfig
 cd ..
-
-ls -al /usr/lib/pkgconfig
-
-echo $PKG_CONFIG_PATH
 
 echo ====== Build and install libsndfile. ======
 tar -xzf libsndfile-1.0.28.tar.gz
