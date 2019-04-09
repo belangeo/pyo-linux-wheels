@@ -23,7 +23,8 @@ find / -name  python
 
 echo $PATH
 
-ln -s /usr/bin/python /opt/_internal/cpython-2.7.16-ucs4/bin/python
+rm /usr/bin/python
+ln -s /opt/_internal/cpython-2.7.16-ucs4/bin/python /usr/bin/python
 
 python --version
 
