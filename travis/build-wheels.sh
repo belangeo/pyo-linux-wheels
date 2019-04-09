@@ -14,13 +14,12 @@ cd /io/deps/
 
 echo ====== Build Berkley libdb. ======
 tar -xzf db-6.2.23.NC.tar.gz
-cd db-6.2.23.NC
-cd build_unix
+cd db-6.2.23.NC/build_unix
 ../dist/configure --prefix=/usr --enable-compat185 --enable-dbm --disable-static --enable-cxx
 make
 make install
 ldconfig
-cd ..
+cd ../..
 
 echo ====== Build and install autogen. ======
 tar -xzf autogen-5.11.8.tar.gz
