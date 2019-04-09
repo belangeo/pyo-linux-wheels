@@ -65,6 +65,15 @@ make install
 ldconfig
 cd ..
 
+echo ====== Build and install alsa-lib. ======
+tar -xjf alsa-lib-1.1.8.tar.bz2
+cd alsa-lib-1.1.8
+./configure --prefix=/usr
+make
+make install
+ldconfig
+cd ..
+
 echo ====== Build and install jack-audio-connection-kit. ======
 tar -xzf jack-audio-connection-kit-0.125.0.tar.gz
 cd jack-audio-connection-kit-0.125.0
