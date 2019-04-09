@@ -3,7 +3,7 @@ set -e -x
 
 # Install a system package required by our library
 #yum update 
-yum install -y guile-devel zlib-devel jack-audio-connection-kit-devel
+yum install -y guile-devel zlib-devel
 #yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
 PATH=/usr/lib:$PATH
@@ -11,6 +11,16 @@ LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
 PKG_CONFIG_PATH=/usr/lib/pkgconfig:$PKG_CONFIG_PATH
 
 cd /io/deps/
+
+echo ====== Build Berkley libdb. ======
+tar -xzf db-6.2.23.NC.tar.gz
+cd db-6.2.23.NC
+cd build_unix
+../dist/configure --prefix=/usr --enable-compat185 --enable-dbm --disable-static --enable-cxx
+make
+make install
+ldconfig
+cd ..
 
 echo ====== Build and install autogen. ======
 tar -xzf autogen-5.11.8.tar.gz
@@ -91,14 +101,17 @@ cd ..
 #ldconfig
 #cd ..
 
-#echo ====== Build and install jack-audio-connection-kit. ======
-#tar -xzf jack-audio-connection-kit-0.125.0.tar.gz
-#cd jack-audio-connection-kit-0.125.0
-#./configure --prefix=/usr --enable-portaudio
-#make
-#make install
-#ldconfig
-#cd ..
+# Need a newer db4-devel package than the one in the package manager to compile
+# jack 0.125.
+
+echo ====== Build and install jack-audio-connection-kit. ======
+tar -xzf jack-audio-connection-kit-0.125.0.tar.gz
+cd jack-audio-connection-kit-0.125.0
+./configure --prefix=/usr --enable-portaudio
+make
+make install
+ldconfig
+cd ..
 
 # Compile wheels
 cd /io/pyo/
