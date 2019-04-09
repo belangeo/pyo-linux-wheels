@@ -3,7 +3,7 @@ set -e -x
 
 # Install a system package required by our library
 #yum update 
-yum install -y guile-devel zlib-devel db4-devel
+yum install -y guile-devel zlib-devel db4-devel scons
 #yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
 PATH=/usr/lib:$PATH
@@ -80,6 +80,14 @@ cd portaudio
 ./configure --prefix=/usr
 make
 make install
+ldconfig
+cd ..
+
+echo ====== Build and install libffado. ======
+tar -xzf libffado-2.3.0.tgz
+cd libffado-2.3.0
+scons
+scons install
 ldconfig
 cd ..
 
