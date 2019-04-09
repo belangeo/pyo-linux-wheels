@@ -7,6 +7,7 @@ yum install -y guile-devel pkg-config
 #yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
 PATH=/usr/lib:$PATH
+LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
 
 cd /io/deps/
 
@@ -52,8 +53,6 @@ make
 make install
 ldconfig
 cd ..
-
-$LD_LIBRARY_PATH
 
 ls -al /usr/lib
 
