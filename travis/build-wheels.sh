@@ -23,6 +23,8 @@ find / -name  python
 
 echo $PATH
 
+/opt/python --version
+
 python -V
 
 tar -xzf libsndfile-1.0.28.tar.gz
