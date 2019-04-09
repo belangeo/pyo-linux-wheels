@@ -110,9 +110,9 @@ cd ..
 #cd ..
 
 echo ====== Build and install libflac. ======
-tar -xzf jack2-1.9.11-RC1.tar.gz
-cd jack2-1.9.11-RC1
-./waf configure CFLAGS="-I../portaudio/include" --prefix=/usr --alsa=yes --portaudio=yes
+tar -xzf jack2-1.9.12.tar.gz
+cd jack2-1.9.12
+./waf configure --prefix=/usr --alsa=yes
 ./waf build
 ./waf install
 ldconfig
