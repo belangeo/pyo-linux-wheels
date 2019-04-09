@@ -54,7 +54,9 @@ make install
 ldconfig
 cd ..
 
-ls -al /usr/lib
+ls -al /usr/lib/pkgconfig
+
+echo $PKG_CONFIG_PATH
 
 echo ====== Build and install libsndfile. ======
 tar -xzf libsndfile-1.0.28.tar.gz
