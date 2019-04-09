@@ -25,18 +25,18 @@ ln -s /opt/_internal/cpython-2.7.16-ucs4/bin/python /usr/bin/python
 
 export ACLOCAL_PATH=/usr/share/aclocal
 
-echo ====== Build and install libvorbis. ======
-tar -xzf libvorbis-1.3.6.tar.gz
-cd libvorbis-1.3.6
+echo ====== Build and install libogg. ======
+tar -xzf libogg-1.3.3.tar.gz
+cd libogg-1.3.3
 ./configure --prefix=/usr
 make
 make install
 ldconfig
 cd ..
 
-echo ====== Build and install libogg. ======
-tar -xzf libogg-1.3.3.tar.gz
-cd libogg-1.3.3
+echo ====== Build and install libvorbis. ======
+tar -xzf libvorbis-1.3.6.tar.gz
+cd libvorbis-1.3.6
 ./configure --prefix=/usr
 make
 make install
