@@ -104,7 +104,7 @@ cd ..
 cd /io/pyo/
 for PYBIN in /opt/python/*/bin; do
     #"${PYBIN}/pip" install -r /io/dev-requirements.txt
-    "${PYBIN}/python" setup.py build_ext --minimal --use-double --use-jack
+    "${PYBIN}/python" setup.py build_ext --minimal --use-double --use-jack --jack-force-old-api
     "${PYBIN}/pip" wheel . -w wheelhouse/
 done
 
