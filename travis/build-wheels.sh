@@ -100,15 +100,21 @@ cd ..
 #ldconfig
 #cd ..
 
-# Need a newer db4-devel package than the one in the package manager to compile
-# jack 0.125.
+#echo ====== Build and install jack-audio-connection-kit. ======
+#tar -xzf jack-audio-connection-kit-0.125.0.tar.gz
+#cd jack-audio-connection-kit-0.125.0
+#./configure CFLAGS="-I../portaudio/include" --prefix=/usr --enable-portaudio
+#make
+#make install
+#ldconfig
+#cd ..
 
-echo ====== Build and install jack-audio-connection-kit. ======
-tar -xzf jack-audio-connection-kit-0.125.0.tar.gz
-cd jack-audio-connection-kit-0.125.0
-./configure CFLAGS="-I../portaudio/include" --prefix=/usr --enable-portaudio
-make
-make install
+echo ====== Build and install libflac. ======
+tar -xzf jack2-1.9.12.tar.gz
+cd jack2-1.9.12
+./waf configure CFLAGS="-I../portaudio/include" --prefix=/usr --portaudio=yes
+./waf build
+./waf install
 ldconfig
 cd ..
 
