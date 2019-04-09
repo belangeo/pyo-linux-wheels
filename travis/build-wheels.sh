@@ -3,7 +3,7 @@ set -e -x
 
 # Install a system package required by our library
 #yum update 
-yum install -y guile-devel zlib-devel db4-devel scons
+yum install -y guile-devel zlib-devel jack-audio-connection-kit
 #yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
 PATH=/usr/lib:$PATH
@@ -91,14 +91,14 @@ cd ..
 #ldconfig
 #cd ..
 
-echo ====== Build and install jack-audio-connection-kit. ======
-tar -xzf jack-audio-connection-kit-0.125.0.tar.gz
-cd jack-audio-connection-kit-0.125.0
-./configure --prefix=/usr --enable-portaudio
-make
-make install
-ldconfig
-cd ..
+#echo ====== Build and install jack-audio-connection-kit. ======
+#tar -xzf jack-audio-connection-kit-0.125.0.tar.gz
+#cd jack-audio-connection-kit-0.125.0
+#./configure --prefix=/usr --enable-portaudio
+#make
+#make install
+#ldconfig
+#cd ..
 
 # Compile wheels
 cd /io/pyo/
