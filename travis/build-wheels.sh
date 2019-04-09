@@ -53,7 +53,9 @@ make install
 ldconfig
 cd ..
 
-ls -al /usr/include
+$LD_LIBRARY_PATH
+
+ls -al /usr/lib
 
 echo ====== Build and install libsndfile. ======
 tar -xzf libsndfile-1.0.28.tar.gz
