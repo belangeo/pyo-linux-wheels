@@ -60,8 +60,10 @@ tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
 ./autogen.sh
 ./configure CFLAGS="-I../flac-1.3.2/include -I../libvorbis-1.3.6/include  -I../libogg-1.3.3/include" --prefix=/usr
-# make
-#sudo make install
+make
+make install
+ldconfig
+cd ..
 
 # Compile wheels
 cd /io/pyo/
