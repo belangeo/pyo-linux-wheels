@@ -28,6 +28,8 @@ ln -s /opt/_internal/cpython-2.7.16-ucs4/bin/python /usr/bin/python
 
 python --version
 
+ls -l /usr/share/aclocal/pkg.m4
+
 tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
 ./autogen.sh
