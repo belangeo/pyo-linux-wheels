@@ -112,7 +112,7 @@ cd ..
 echo ====== Build and install libflac. ======
 tar -xzf jack2-1.9.12.tar.gz
 cd jack2-1.9.12
-./waf configure --prefix=/usr --alsa=yes
+./waf configure LDFLAGS="-lstdc++" --prefix=/usr --alsa=yes
 ./waf build
 ./waf install
 ldconfig
