@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e -x
 
+cmake --version
+exit 0
+
 # Install a system package required by our library
 yum install -y guile-devel zlib-devel
 #yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
