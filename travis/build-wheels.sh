@@ -21,8 +21,8 @@ ldconfig
 cd ../..
 
 echo ====== Build and install cmake. ======
-tar -xzf cmake-3.14.1.tar.gz
-cd cmake-3.14.1
+tar -xzf cmake-3.13.4.tar.gz
+cd cmake-3.13.4
 ./configure --prefix=/usr
 make
 make install
