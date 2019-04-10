@@ -5,16 +5,16 @@ set -e -x
 yum install -y guile-devel zlib-devel
 #yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
-PATH=/usr/lib:$PATH
-LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
-PKG_CONFIG_PATH=/usr/lib/pkgconfig:$PKG_CONFIG_PATH
+#PATH=/usr/lib:$PATH
+#LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
+#PKG_CONFIG_PATH=/usr/lib/pkgconfig:$PKG_CONFIG_PATH
 
 cd /io/deps/
 
 echo ====== Build Berkley libdb. ======
 tar -xzf db-6.2.23.NC.tar.gz
 cd db-6.2.23.NC/build_unix
-../dist/configure --prefix=/usr --enable-compat185 --enable-dbm --disable-static --enable-cxx
+../dist/configure --enable-compat185 --enable-dbm --disable-static --enable-cxx
 make -s
 make install -s
 ldconfig
@@ -23,7 +23,7 @@ cd ../..
 echo ====== Build and install cmake. ======
 tar -xzf cmake-3.13.4.tar.gz
 cd cmake-3.13.4
-./configure --prefix=/usr
+./configure
 make -s
 make install -s
 ldconfig
@@ -32,7 +32,7 @@ cd ..
 echo ====== Build and install alsa-lib. ======
 tar -xjf alsa-lib-1.1.8.tar.bz2
 cd alsa-lib-1.1.8
-./configure --prefix=/usr
+./configure
 make -s
 make install -s
 ldconfig
@@ -43,7 +43,7 @@ cd ..
 echo ====== Build and install portmidi. ======
 tar -xzf portmidi-1-master.tar.gz
 cd portmidi-1-master
-cmake -DCMAKE_INSTALL_PREFIX=/usr .
+cmake .
 make -s
 make install -s
 ldconfig
@@ -52,7 +52,7 @@ cd ..
 echo ====== Build and install autogen. ======
 tar -xzf autogen-5.11.8.tar.gz
 cd autogen-5.11.8
-./configure --prefix=/usr
+./configure
 make -s
 make install -s
 ldconfig
@@ -67,7 +67,7 @@ export ACLOCAL_PATH=/usr/share/aclocal
 echo ====== Build and install liblo. ======
 tar -xzf liblo-0.30.tar.gz
 cd liblo-0.30
-./configure --prefix=/usr
+./configure
 make -s
 make install -s
 ldconfig
@@ -76,7 +76,7 @@ cd ..
 echo ====== Build and install libogg. ======
 tar -xzf libogg-1.3.3.tar.gz
 cd libogg-1.3.3
-./configure --prefix=/usr
+./configure
 make -s
 make install -s
 ldconfig
@@ -85,7 +85,7 @@ cd ..
 echo ====== Build and install libvorbis. ======
 tar -xzf libvorbis-1.3.6.tar.gz
 cd libvorbis-1.3.6
-./configure --prefix=/usr
+./configure
 make -s
 make install -s
 ldconfig
@@ -95,7 +95,7 @@ echo ====== Build and install libflac. ======
 tar -xzf flac-1.3.2.tar.gz
 cd flac-1.3.2
 ./autogen.sh
-./configure --prefix=/usr
+./configure
 make -s
 make install -s
 ldconfig
@@ -106,7 +106,7 @@ tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
 ./autogen.sh
 # Not sure we really need CFLAGS here.
-./configure CFLAGS="-I../flac-1.3.2/include -I../libvorbis-1.3.6/include  -I../libogg-1.3.3/include" --prefix=/usr
+./configure CFLAGS="-I../flac-1.3.2/include -I../libvorbis-1.3.6/include  -I../libogg-1.3.3/include"
 make -s
 make install -s
 ldconfig
@@ -115,7 +115,7 @@ cd ..
 echo ====== Build and install portaudio. ======
 tar -xzf pa_stable_v190600_20161030.tgz
 cd portaudio
-./configure --prefix=/usr
+./configure
 make -s
 make install -s
 ldconfig
@@ -132,7 +132,7 @@ cd ..
 echo ====== Build and install jack2. ======
 tar -xzf jack2-1.9.12.tar.gz
 cd jack2-1.9.12
-./waf configure LDFLAGS="-lstdc++" --prefix=/usr --alsa=yes
+./waf configure LDFLAGS="-lstdc++" --alsa=yes
 ./waf build
 ./waf install
 ldconfig
