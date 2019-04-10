@@ -49,8 +49,6 @@ make install
 ldconfig
 cd ..
 
-exit 0
-
 echo ====== Build and install autogen. ======
 tar -xzf autogen-5.11.8.tar.gz
 cd autogen-5.11.8
@@ -148,7 +146,7 @@ for PYBIN in /opt/python/*/bin; do
 		continue
 	fi
     #"${PYBIN}/pip" install -r /io/dev-requirements.txt
-    "${PYBIN}/python" setup.py build_ext --minimal --use-double --use-jack
+    "${PYBIN}/python" setup.py build_ext --use-double --use-jack
     "${PYBIN}/pip" wheel . -w wheelhouse/
 done
 
