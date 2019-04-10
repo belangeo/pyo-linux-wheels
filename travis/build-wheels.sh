@@ -29,6 +29,15 @@ make install
 ldconfig
 cd ..
 
+echo ====== Build and install alsa-lib. ======
+tar -xjf alsa-lib-1.1.8.tar.bz2
+cd alsa-lib-1.1.8
+./configure --prefix=/usr
+make
+make install
+ldconfig
+cd ..
+
 # Build portmidi without java dependency from:
 # https://github.com/schollz/portmidi-1
 echo ====== Build and install portmidi. ======
@@ -100,15 +109,6 @@ cd libsndfile-1.0.28
 ./autogen.sh
 # Not sure we really need CFLAGS here.
 ./configure CFLAGS="-I../flac-1.3.2/include -I../libvorbis-1.3.6/include  -I../libogg-1.3.3/include" --prefix=/usr
-make
-make install
-ldconfig
-cd ..
-
-echo ====== Build and install alsa-lib. ======
-tar -xjf alsa-lib-1.1.8.tar.bz2
-cd alsa-lib-1.1.8
-./configure --prefix=/usr
 make
 make install
 ldconfig
