@@ -29,9 +29,11 @@ make install
 ldconfig
 cd ..
 
+# Build portmidi without java dependency from:
+# https://github.com/schollz/portmidi-1
 echo ====== Build and install portmidi. ======
-tar -xzf portmidi-src-217.tar.gz
-cd portmidi-src-217
+tar -xzf portmidi-1-master.tar.gz
+cd portmidi-1-master
 cmake -DCMAKE_INSTALL_PREFIX=/usr .
 make
 make install
