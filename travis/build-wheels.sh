@@ -29,6 +29,15 @@ make install
 ldconfig
 cd ..
 
+echo ====== Build and install portmidi. ======
+tar -xzf portmidi-src-217.tar.gz
+cd portmidi-src-217
+cmake -DCMAKE_INSTALL_PREFIX=/usr .
+make
+make install
+ldconfig
+cd ..
+
 exit 0
 
 echo ====== Build and install autogen. ======
