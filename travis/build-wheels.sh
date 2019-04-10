@@ -2,7 +2,6 @@
 set -e -x
 
 # Install a system package required by our library
-#yum update 
 yum install -y guile-devel zlib-devel
 #yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
@@ -30,11 +29,20 @@ make install
 ldconfig
 cd ..
 
-# python version in /usr/bin is 2.4, link to 2.7.
+# python version in /usr/bin is 2.4, link to 2.7 instead.
 rm /usr/bin/python
 ln -s /opt/_internal/cpython-2.7.16-ucs4/bin/python /usr/bin/python
 
 export ACLOCAL_PATH=/usr/share/aclocal
+
+echo ====== Build and install liblo. ======
+tar -xzf liblo-0.30.tar.gz
+cd liblo-0.30
+./configure --prefix=/usr
+make
+make install
+ldconfig
+cd ..
 
 echo ====== Build and install libogg. ======
 tar -xzf libogg-1.3.3.tar.gz
@@ -68,6 +76,7 @@ echo ====== Build and install libsndfile. ======
 tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
 ./autogen.sh
+# Not sure we really need CFLAGS here.
 ./configure CFLAGS="-I../flac-1.3.2/include -I../libvorbis-1.3.6/include  -I../libogg-1.3.3/include" --prefix=/usr
 make
 make install
@@ -97,15 +106,6 @@ cd ..
 #cd libffado-2.3.0
 #scons
 #scons install
-#ldconfig
-#cd ..
-
-#echo ====== Build and install jack-audio-connection-kit. ======
-#tar -xzf jack-audio-connection-kit-0.125.0.tar.gz
-#cd jack-audio-connection-kit-0.125.0
-#./configure CFLAGS="-I../portaudio/include" --prefix=/usr --enable-portaudio
-#make
-#make install
 #ldconfig
 #cd ..
 
