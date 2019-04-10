@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e -x
 
-cmake --version
-exit 0
-
 # Install a system package required by our library
 yum install -y guile-devel zlib-devel
 #yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
@@ -22,6 +19,17 @@ make
 make install
 ldconfig
 cd ../..
+
+echo ====== Build and install cmake. ======
+tar -xzf cmake-3.14.1.tar.gz
+cd cmake-3.14.1
+./configure --prefix=/usr
+make
+make install
+ldconfig
+cd ..
+
+exit 0
 
 echo ====== Build and install autogen. ======
 tar -xzf autogen-5.11.8.tar.gz
