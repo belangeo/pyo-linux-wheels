@@ -32,7 +32,7 @@ cd ..
 echo ====== Build and install alsa-lib. ======
 tar -xjf alsa-lib-1.1.8.tar.bz2
 cd alsa-lib-1.1.8
-./configure
+./configure --prefix=/usr/local
 make -s
 make install -s
 ldconfig
