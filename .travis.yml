@@ -29,3 +29,4 @@ deploy:
   on:
     repo: belangeo/pyo-linux-wheels
   overwrite: true
+  all_branches: true
