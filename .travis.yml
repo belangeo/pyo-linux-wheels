@@ -1,35 +1,31 @@
 notifications:
   email: false
-
 env:
   global:
-      - REPO_DIR=pyo
-      - BUILD_COMMIT=master
+  - REPO_DIR=pyo
+  - BUILD_COMMIT=master
 matrix:
   include:
-    - sudo: required
-      services:
-        - docker
-      env: DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64
-    - sudo: required
-      services:
-        - docker
-      env: DOCKER_IMAGE=quay.io/pypa/manylinux1_i686
-           PRE_CMD=linux32
-
+  - sudo: required
+    services:
+    - docker
+    env: DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64
+  - sudo: required
+    services:
+    - docker
+    env: DOCKER_IMAGE=quay.io/pypa/manylinux1_i686 PRE_CMD=linux32
 install:
-  - docker pull $DOCKER_IMAGE
-
+- docker pull $DOCKER_IMAGE
 script:
-  - docker run --rm -v `pwd`:/io $DOCKER_IMAGE $PRE_CMD /io/travis/build-wheels.sh
-  - pwd
-  - ls pyo/wheelhouse/
-  
+- docker run --rm -v `pwd`:/io $DOCKER_IMAGE $PRE_CMD /io/travis/build-wheels.sh
+- pwd
+- ls pyo/wheelhouse/
 deploy:
   provider: releases
   api_key:
-    secure: "WFdJo7VoY1XupQI7mzr+CiZEBnQABPEBfUdiHoLLeWEm9rduLOsp4e7LemD0W/VN9lKO48pTaXK1SHWvGfSKVtH6ZRrDdYPN0zfXVF3vplTpq6a5t5Gr4fvcG82DnhdT/vlAWDNnkefLA4KHvsmVxLSn4SxWA5PVaypQafHtua3/MyhQgC5kQIeCjIb5G/+H3PtbCXp1YiFjDVQ86HJtGi9F6sw/CRo4kFVi72bCSjMMtcN2SNi7LxxiPZBgUSAL3nEXcRs5x6jJ4EnbO0ap5UJb3yMx9wT5JBNm4J/kQ+9xqjbfMWvQWx59wDUlkdgVoPsoz+v0RBIhNBY6WoGwz2+5oetvz7IBuykyWCqw9gscZbDAXDQAZi9JNwvR9j3TsfDDPL8vknCYOdee9m6aIy5brvntmqdiMvv+bCh7TJspNl+ivbSozCKhPE9ettVugaW1DWBHMsMp9uxn/jp2ZQfOihxzQe0MzGRzBEylZsWTUfeNXso0N81Rz5Z1gHjIovD+x5WP8N6X3FW2oRcIMHGAvziGYJX8qnPZQg2HWruvwkcsF7BdMN4u0qYm7U+kdR9X7tdxt8y4aSxC9GA8y0iYqk5RsQs9mMgCjooknP2RtiQUUQmoRx9BDPvNwkEPP4my/y+tYQQAfxUGFZB/9+WSHzvI9wUSWKjF8bkTMik="
-  file: "pyo/wheelhouse/*whl"
-  skip_cleanup: true
+    secure: aWfOmMWImaUOGg5MBLKz/Pvxi8AUYoxjJtg8RQSdZgFXT1bzERLwBpMIX8+9tVErrMCbryo8vuTRviElnD5vLRyRmXgO4cyd6CXw1pN8ks44K4ATywLyE51hXjGwxfQch0EJCvA0XFpTbuvL2sbqAHpowAWD+BNak4YTxpeojBZ/IwxKJJ3m/LbbGGxXRImQe2LQnUV/lLIgtXWFMNSUPvwC0cKq/KupxnKzo6CqPQaXuHu6WYyKXGnbMhPin65lOAGMnV3qQL81nFpropX1gmU2LIku5gkgu4Q+Vg3I/MOo1b6RNsQQ8Um3NIdNrCUjFMvp+j9FDr8svrhSj6nPV/AkaSsb9TYWYD5S3OxQbla+K7xSuoSjsKeopjM+LvWfHfxXhXoI2fPTKIGvMoSnj7nw3KPo2jdML7vhy1PJMHDHdHvfR/UfwQJc5W5Rb1QBReo8+/qRXvvG4E7i11CJgAIiw67L9zHk4AgbhifGR8uds9HLLiJ6LAvOkMCAqjIsuErsPZvfvh4cyNdRo9pCQyq1kL5gxX7RG8Wrmnqw7VYhpe2LqhiacLpPSJpF1++LKEYN2tNkcAYTf6Bj1kcPPruBZs/gX6vaKewUs9e4knKWEdmwXnHA6um1BrvEY0Cajz9iRY0Dc1gUJFwFHi04rxczb0eunuobPutyn2Vg6zk=
+  file_glob: true   
+  file: pyo/wheelhouse/*whl
   on:
-    tags
+    repo: belangeo/pyo-linux-wheels
+  overwrite: true
