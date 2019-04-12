@@ -5,9 +5,9 @@ set -e -x
 yum install -y guile-devel zlib-devel
 #yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
-#PATH=/usr/lib:$PATH
-#LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
-#PKG_CONFIG_PATH=/usr/lib/pkgconfig:$PKG_CONFIG_PATH
+PATH=/usr/lib:$PATH
+LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
+PKG_CONFIG_PATH=/usr/lib/pkgconfig:$PKG_CONFIG_PATH
 
 cd /io/deps/
 
@@ -32,7 +32,7 @@ cd ..
 echo ====== Build and install alsa-lib. ======
 tar -xjf alsa-lib-1.1.8.tar.bz2
 cd alsa-lib-1.1.8
-./configure --prefix=/usr/local 1>/dev/null
+./configure 1>/dev/null
 make 1>/dev/null
 make install 1>/dev/null
 ldconfig
@@ -145,7 +145,6 @@ for PYBIN in /opt/python/*/bin; do
 	then
 		continue
 	fi
-    #"${PYBIN}/pip" install -r /io/dev-requirements.txt
     "${PYBIN}/python" setup.py build_ext --use-double --use-jack
     "${PYBIN}/pip" wheel . -w wheelhouse/
 done
