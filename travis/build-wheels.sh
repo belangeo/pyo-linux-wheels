@@ -3,7 +3,6 @@ set -e -x
 
 # Install a system package required by our library
 yum install -y guile-devel zlib-devel
-#yum install -y portaudio-devel portmidi-devel libsndfile-devel liblo-devel
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
@@ -140,17 +139,20 @@ cd ..
 
 # Compile wheels
 cd /io/pyo/
+
+rm -rf wheeltmp
+
 for PYBIN in /opt/python/*/bin; do
 	if [ "$PYBIN" == "/opt/python/cp34-cp34m/bin" ]
 	then
 		continue
 	fi
     "${PYBIN}/python" setup.py build_ext --use-double --use-jack
-    "${PYBIN}/pip" wheel . -w wheelhouse/
+    "${PYBIN}/pip" wheel . -w wheeltmp/
 done
 
 # Bundle external shared libraries into the wheels
-for whl in wheelhouse/*.whl; do
+for whl in wheeltmp/*.whl; do
     auditwheel repair "$whl" -w wheelhouse/
 done
 
