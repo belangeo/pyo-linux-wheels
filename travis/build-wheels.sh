@@ -131,7 +131,7 @@ cd ..
 echo ====== Build and install jack2. ======
 tar -xzf jack2-1.9.12.tar.gz
 cd jack2-1.9.12
-./waf configure LDFLAGS="-lstdc++" --alsa=yes 1>/dev/null
+./waf configure LDFLAGS="-lstdc++" 1>/dev/null
 ./waf build 1>/dev/null
 ./waf install 1>/dev/null
 ldconfig
