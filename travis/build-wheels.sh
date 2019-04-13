@@ -2,7 +2,7 @@
 set -e -x
 
 # Install a system package required by our library
-yum install -y guile-devel zlib-devel portaudio-devel
+yum install -y guile-devel zlib-devel alsa-lib-devel portaudio-devel
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
@@ -142,7 +142,8 @@ cd /io/pyo/
 
 rm -rf wheeltmp
 
-VERSIONS="cp27-cp27m cp27-cp27m cp35-cp35m cp36-cp36m cp37-cp37m"
+#VERSIONS="cp27-cp27m cp27-cp27m cp35-cp35m cp36-cp36m cp37-cp37m"
+VERSIONS="cp35-cp35m"
 
 for version in $VERSIONS; do
     if [[ -d /opt/python/${version} ]]; then
