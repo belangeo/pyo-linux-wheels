@@ -172,6 +172,7 @@ done
 
 # Bundle external shared libraries into the wheels
 for whl in wheeltmp/*.whl; do
+    auditwheel show "$whl"
     auditwheel repair "$whl" -w wheelhouse/
 done
 
