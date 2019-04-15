@@ -2,7 +2,7 @@
 set -e -x
 
 # Install a system package required by our library
-yum install -y guile-devel zlib-devel
+yum install -y guile-devel zlib-devel alsa-lib alsa-lib-devel alsa-utils
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
@@ -28,32 +28,32 @@ make install 1>/dev/null
 ldconfig
 cd ..
 
-echo ====== Build and install alsa-lib. ======
-tar -xjf alsa-lib-1.1.8.tar.bz2
-cd alsa-lib-1.1.8
-./configure 1>/dev/null
-make 1>/dev/null
-make install 1>/dev/null
-ldconfig
-cd ..
+#echo ====== Build and install alsa-lib. ======
+#tar -xjf alsa-lib-1.1.8.tar.bz2
+#cd alsa-lib-1.1.8
+#./configure 1>/dev/null
+#make 1>/dev/null
+#make install 1>/dev/null
+#ldconfig
+#cd ..
 
-echo ====== Build and install alsa-utils. ======
-tar -xjf alsa-utils-1.1.8.tar.bz2
-cd alsa-utils-1.1.8
-./configure 1>/dev/null
-make 1>/dev/null
-make install 1>/dev/null
-ldconfig
-cd ..
+#echo ====== Build and install alsa-utils. ======
+#tar -xjf alsa-utils-1.1.8.tar.bz2
+#cd alsa-utils-1.1.8
+#./configure 1>/dev/null
+#make 1>/dev/null
+#make install 1>/dev/null
+#ldconfig
+#cd ..
 
-echo ====== Build and install alsa-oss. ======
-tar -xjf alsa-oss-1.1.8.tar.bz2
-cd alsa-oss-1.1.8
-./configure 1>/dev/null
-make 1>/dev/null
-make install 1>/dev/null
-ldconfig
-cd ..
+#echo ====== Build and install alsa-oss. ======
+#tar -xjf alsa-oss-1.1.8.tar.bz2
+#cd alsa-oss-1.1.8
+#./configure 1>/dev/null
+#make 1>/dev/null
+#make install 1>/dev/null
+#ldconfig
+#cd ..
 
 # Build portmidi without java dependency from:
 # https://github.com/schollz/portmidi-1
