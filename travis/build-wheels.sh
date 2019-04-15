@@ -37,6 +37,24 @@ make install 1>/dev/null
 ldconfig
 cd ..
 
+echo ====== Build and install alsa-utils. ======
+tar -xjf alsa-utils-1.1.8.tar.bz2
+cd alsa-utils-1.1.8
+./configure 1>/dev/null
+make 1>/dev/null
+make install 1>/dev/null
+ldconfig
+cd ..
+
+echo ====== Build and install alsa-oss. ======
+tar -xjf alsa-oss-1.1.8.tar.bz2
+cd alsa-oss-1.1.8
+./configure 1>/dev/null
+make 1>/dev/null
+make install 1>/dev/null
+ldconfig
+cd ..
+
 # Build portmidi without java dependency from:
 # https://github.com/schollz/portmidi-1
 echo ====== Build and install portmidi. ======
