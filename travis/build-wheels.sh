@@ -3,7 +3,7 @@ set -e -x
 
 
 # Install a system package required by our library
-yum install -y guile-devel zlib-devel
+yum install -y guile-devel zlib-devel "perl(XML::LibXML)"
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
