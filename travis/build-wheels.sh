@@ -92,15 +92,6 @@ make install 1>/dev/null
 ldconfig
 cd ..
 
-echo ====== Build and install alsa-plugins. ======
-tar -xjf alsa-plugins-1.1.8.tar.bz2
-cd alsa-plugins-1.1.8
-./configure --with-alsaconfigdir=/usr/share/alsa
-make 1>/dev/null
-make install 1>/dev/null
-ldconfig
-cd ..
-
 #echo ====== Build and install alsa-utils. ======
 #tar -xjf alsa-utils-1.1.8.tar.bz2
 #cd alsa-utils-1.1.8
@@ -169,6 +160,15 @@ echo ====== Build and install pulseaudio. ======
 tar -xzf pulseaudio-12.2.tar.gz
 cd pulseaudio-12.2
 ./configure --without-caps
+make 1>/dev/null
+make install 1>/dev/null
+ldconfig
+cd ..
+
+echo ====== Build and install alsa-plugins. ======
+tar -xjf alsa-plugins-1.1.8.tar.bz2
+cd alsa-plugins-1.1.8
+./configure --with-alsaconfigdir=/usr/share/alsa
 make 1>/dev/null
 make install 1>/dev/null
 ldconfig
