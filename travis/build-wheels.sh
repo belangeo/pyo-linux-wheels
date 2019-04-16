@@ -31,7 +31,7 @@ cd ..
 echo ====== Build and install alsa-lib. ======
 tar -xjf alsa-lib-1.1.8.tar.bz2
 cd alsa-lib-1.1.8
-./configure 1>/dev/null
+./configure --with-configdir=/usr/share/alsa 1>/dev/null
 make 1>/dev/null
 make install 1>/dev/null
 ldconfig
