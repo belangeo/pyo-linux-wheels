@@ -20,6 +20,15 @@ make install 1>/dev/null
 ldconfig
 cd ../..
 
+echo ====== Build and install autogen. ======
+tar -xzf autogen-5.11.8.tar.gz
+cd autogen-5.11.8
+./configure 1>/dev/null
+make 1>/dev/null
+make install 1>/dev/null
+ldconfig
+cd ..
+
 echo ====== Build and install cmake. ======
 tar -xzf cmake-3.13.4.tar.gz
 cd cmake-3.13.4
@@ -29,14 +38,44 @@ make install 1>/dev/null
 ldconfig
 cd ..
 
-#echo ====== Build and install intltool. ======
-#tar -xzf intltool-0.51.0.tar.gz
-#cd intltool-0.51.0
-#./configure 1>/dev/null
-#make 1>/dev/null
-#make install 1>/dev/null
-#ldconfig
-#cd ..
+echo ====== Build and install libogg. ======
+tar -xzf libogg-1.3.3.tar.gz
+cd libogg-1.3.3
+./configure 1>/dev/null
+make 1>/dev/null
+make install 1>/dev/null
+ldconfig
+cd ..
+
+echo ====== Build and install libvorbis. ======
+tar -xzf libvorbis-1.3.6.tar.gz
+cd libvorbis-1.3.6
+./configure 1>/dev/null
+make 1>/dev/null
+make install 1>/dev/null
+ldconfig
+cd ..
+
+echo ====== Build and install libflac. ======
+tar -xzf flac-1.3.2.tar.gz
+cd flac-1.3.2
+./autogen.sh 1>/dev/null
+./configure 1>/dev/null
+make 1>/dev/null
+make install 1>/dev/null
+ldconfig
+cd ..
+
+echo ====== Build and install libsndfile. ======
+tar -xzf libsndfile-1.0.28.tar.gz
+cd libsndfile-1.0.28
+./autogen.sh 1>/dev/null
+# Not sure we really need CFLAGS here.
+./configure CFLAGS="-I../flac-1.3.2/include -I../libvorbis-1.3.6/include  -I../libogg-1.3.3/include" 1>/dev/null
+make 1>/dev/null
+make install 1>/dev/null
+ldconfig
+cd ..
 
 echo ====== Build and install pulseaudio. ======
 tar -xzf pulseaudio-12.2.tar.gz
@@ -85,15 +124,6 @@ make install 1>/dev/null
 ldconfig
 cd ..
 
-echo ====== Build and install autogen. ======
-tar -xzf autogen-5.11.8.tar.gz
-cd autogen-5.11.8
-./configure 1>/dev/null
-make 1>/dev/null
-make install 1>/dev/null
-ldconfig
-cd ..
-
 # python version in /usr/bin is 2.4, link to 2.7 instead.
 rm /usr/bin/python
 ln -s /opt/_internal/cpython-2.7.16-ucs4/bin/python /usr/bin/python
@@ -104,45 +134,6 @@ echo ====== Build and install liblo. ======
 tar -xzf liblo-0.30.tar.gz
 cd liblo-0.30
 ./configure 1>/dev/null
-make 1>/dev/null
-make install 1>/dev/null
-ldconfig
-cd ..
-
-echo ====== Build and install libogg. ======
-tar -xzf libogg-1.3.3.tar.gz
-cd libogg-1.3.3
-./configure 1>/dev/null
-make 1>/dev/null
-make install 1>/dev/null
-ldconfig
-cd ..
-
-echo ====== Build and install libvorbis. ======
-tar -xzf libvorbis-1.3.6.tar.gz
-cd libvorbis-1.3.6
-./configure 1>/dev/null
-make 1>/dev/null
-make install 1>/dev/null
-ldconfig
-cd ..
-
-echo ====== Build and install libflac. ======
-tar -xzf flac-1.3.2.tar.gz
-cd flac-1.3.2
-./autogen.sh 1>/dev/null
-./configure 1>/dev/null
-make 1>/dev/null
-make install 1>/dev/null
-ldconfig
-cd ..
-
-echo ====== Build and install libsndfile. ======
-tar -xzf libsndfile-1.0.28.tar.gz
-cd libsndfile-1.0.28
-./autogen.sh 1>/dev/null
-# Not sure we really need CFLAGS here.
-./configure CFLAGS="-I../flac-1.3.2/include -I../libvorbis-1.3.6/include  -I../libogg-1.3.3/include" 1>/dev/null
 make 1>/dev/null
 make install 1>/dev/null
 ldconfig
