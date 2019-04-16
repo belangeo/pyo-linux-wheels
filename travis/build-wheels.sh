@@ -3,7 +3,7 @@ set -e -x
 
 
 # Install a system package required by our library
-yum install -y guile-devel zlib-devel "perl(XML::LibXML)"
+yum install -y guile-devel zlib-devel intltool
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
@@ -29,14 +29,14 @@ make install 1>/dev/null
 ldconfig
 cd ..
 
-echo ====== Build and install intltool. ======
-tar -xzf intltool-0.51.0.tar.gz
-cd intltool-0.51.0
-./configure 1>/dev/null
-make 1>/dev/null
-make install 1>/dev/null
-ldconfig
-cd ..
+#echo ====== Build and install intltool. ======
+#tar -xzf intltool-0.51.0.tar.gz
+#cd intltool-0.51.0
+#./configure 1>/dev/null
+#make 1>/dev/null
+#make install 1>/dev/null
+#ldconfig
+#cd ..
 
 echo ====== Build and install pulseaudio. ======
 tar -xzf pulseaudio-12.2.tar.gz
