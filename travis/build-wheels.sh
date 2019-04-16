@@ -41,7 +41,7 @@ cd ..
 echo ====== Build and install pulseaudio. ======
 tar -xzf pulseaudio-12.2.tar.gz
 cd pulseaudio-12.2
-./configure
+./configure --without-caps
 make 1>/dev/null
 make install 1>/dev/null
 ldconfig
