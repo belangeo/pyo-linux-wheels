@@ -3,11 +3,17 @@ set -e -x
 
 
 # Install a system package required by our library
-yum install -y guile-devel zlib-devel intltool
+yum install -y guile-devel zlib-devel intltool xmms
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
 PKG_CONFIG_PATH=/usr/lib/pkgconfig:$PKG_CONFIG_PATH
+
+export ACLOCAL_PATH=/usr/share/aclocal
+
+# python version in /usr/bin is 2.4, link to 2.7 instead.
+rm /usr/bin/python
+ln -s /opt/_internal/cpython-2.7.16-ucs4/bin/python /usr/bin/python
 
 cd /io/deps/
 
@@ -123,12 +129,6 @@ make 1>/dev/null
 make install 1>/dev/null
 ldconfig
 cd ..
-
-# python version in /usr/bin is 2.4, link to 2.7 instead.
-rm /usr/bin/python
-ln -s /opt/_internal/cpython-2.7.16-ucs4/bin/python /usr/bin/python
-
-export ACLOCAL_PATH=/usr/share/aclocal
 
 echo ====== Build and install liblo. ======
 tar -xzf liblo-0.30.tar.gz
