@@ -84,8 +84,8 @@ ldconfig
 cd ..
 
 echo ====== Build and install alsa-lib. ======
-tar -xjf alsa-lib-1.1.8.tar.bz2
-cd alsa-lib-1.1.8
+tar -xjf alsa-lib-1.1.6.tar.bz2
+cd alsa-lib-1.1.6
 ./configure --with-configdir=/usr/share/alsa
 make 1>/dev/null
 make install 1>/dev/null
@@ -93,8 +93,8 @@ ldconfig
 cd ..
 
 echo ====== Build and install alsa-utils. ======
-tar -xjf alsa-utils-1.1.8.tar.bz2
-cd alsa-utils-1.1.8
+tar -xjf alsa-utils-1.1.6.tar.bz2
+cd alsa-utils-1.1.6
 ./configure 1>/dev/null
 make 1>/dev/null
 make install 1>/dev/null
@@ -166,8 +166,8 @@ cd ..
 #cd ..
 
 echo ====== Build and install alsa-plugins. ======
-tar -xjf alsa-plugins-1.1.8.tar.bz2
-cd alsa-plugins-1.1.8
+tar -xjf alsa-plugins-1.1.6.tar.bz2
+cd alsa-plugins-1.1.6
 ./configure --with-alsaconfigdir=/usr/share/alsa
 make 1>/dev/null
 make install 1>/dev/null
