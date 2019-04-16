@@ -69,7 +69,7 @@ cd ..
 echo ====== Build and install libsndfile. ======
 tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
-./autogen.sh 1>/dev/null
+./autogen.sh
 # Not sure we really need CFLAGS here.
 ./configure CFLAGS="-I../flac-1.3.2/include -I../libvorbis-1.3.6/include  -I../libogg-1.3.3/include" 1>/dev/null
 make 1>/dev/null
