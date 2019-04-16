@@ -2,7 +2,7 @@
 set -e -x
 
 # Install a system package required by our library
-yum install -y guile-devel zlib-devel pulseaudio-libs-devel
+yum install -y guile-devel zlib-devel pulseaudio-libs
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
@@ -31,7 +31,7 @@ cd ..
 echo ====== Build and install alsa-lib. ======
 tar -xjf alsa-lib-1.1.8.tar.bz2
 cd alsa-lib-1.1.8
-./configure --with-configdir=/usr/share/alsa 1>/dev/null
+./configure --with-configdir=/usr/share/alsa
 make 1>/dev/null
 make install 1>/dev/null
 ldconfig
