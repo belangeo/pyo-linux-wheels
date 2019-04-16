@@ -1,9 +1,8 @@
 #!/bin/bash
 set -e -x
 
-
 # Install a system package required by our library
-yum install -y guile-devel zlib-devel
+yum install -y guile-devel zlib-devel pulseaudio-libs-devel
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
