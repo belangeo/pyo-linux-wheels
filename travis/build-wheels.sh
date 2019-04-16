@@ -3,7 +3,7 @@ set -e -x
 
 
 # Install a system package required by our library
-yum install -y guile-devel zlib-devel pulseaudio pulseaudio-utils
+yum install -y guile-devel zlib-devel
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
@@ -24,6 +24,15 @@ echo ====== Build and install cmake. ======
 tar -xzf cmake-3.13.4.tar.gz
 cd cmake-3.13.4
 ./configure 1>/dev/null
+make 1>/dev/null
+make install 1>/dev/null
+ldconfig
+cd ..
+
+echo ====== Build and install pulseaudio. ======
+tar -xjf pulseaudio-12.2.tar.xz
+cd pulseaudio-12.2
+./configure
 make 1>/dev/null
 make install 1>/dev/null
 ldconfig
