@@ -30,7 +30,7 @@ ldconfig
 cd ..
 
 echo ====== Build and install pulseaudio. ======
-tar -xjf pulseaudio-12.2.tar.xz
+tar -xf pulseaudio-12.2.tar.xz
 cd pulseaudio-12.2
 ./configure
 make 1>/dev/null
