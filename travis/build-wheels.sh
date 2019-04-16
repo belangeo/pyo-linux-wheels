@@ -29,6 +29,15 @@ make install 1>/dev/null
 ldconfig
 cd ..
 
+echo ====== Build and install intltool. ======
+tar -xzf intltool-0.51.0.tar.gz
+cd intltool-0.51.0
+./configure 1>/dev/null
+make 1>/dev/null
+make install 1>/dev/null
+ldconfig
+cd ..
+
 echo ====== Build and install pulseaudio. ======
 tar -xzf pulseaudio-12.2.tar.gz
 cd pulseaudio-12.2
