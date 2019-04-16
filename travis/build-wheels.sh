@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e -x
 
+
 # Install a system package required by our library
 yum install -y guile-devel zlib-devel pulseaudio pulseaudio-utils
 
