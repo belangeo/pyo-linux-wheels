@@ -3,7 +3,7 @@ set -e -x
 
 
 # Install a system package required by our library
-yum install -y guile-devel zlib-devel intltool xmms
+yum install -y guile-devel zlib-devel intltool dbus
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
@@ -83,15 +83,6 @@ make install 1>/dev/null
 ldconfig
 cd ..
 
-echo ====== Build and install pulseaudio. ======
-tar -xzf pulseaudio-12.2.tar.gz
-cd pulseaudio-12.2
-./configure --without-caps
-make 1>/dev/null
-make install 1>/dev/null
-ldconfig
-cd ..
-
 echo ====== Build and install alsa-lib. ======
 tar -xjf alsa-lib-1.1.8.tar.bz2
 cd alsa-lib-1.1.8
@@ -162,6 +153,15 @@ cd jack2-1.9.12
 ./waf configure LDFLAGS="-lstdc++" 1>/dev/null
 ./waf build 1>/dev/null
 ./waf install 1>/dev/null
+ldconfig
+cd ..
+
+echo ====== Build and install pulseaudio. ======
+tar -xzf pulseaudio-12.2.tar.gz
+cd pulseaudio-12.2
+./configure --without-caps
+make 1>/dev/null
+make install 1>/dev/null
 ldconfig
 cd ..
 
