@@ -92,14 +92,14 @@ make install 1>/dev/null
 ldconfig
 cd ..
 
-echo ====== Build and install alsa-utils. ======
-tar -xjf alsa-utils-1.1.6.tar.bz2
-cd alsa-utils-1.1.6
-./configure 1>/dev/null
-make 1>/dev/null
-make install 1>/dev/null
-ldconfig
-cd ..
+#echo ====== Build and install alsa-utils. ======
+#tar -xjf alsa-utils-1.1.6.tar.bz2
+#cd alsa-utils-1.1.6
+#./configure 1>/dev/null
+#make 1>/dev/null
+#make install 1>/dev/null
+#ldconfig
+#cd ..
 
 #echo ====== Build and install alsa-oss. ======
 #tar -xjf alsa-oss-1.1.8.tar.bz2
@@ -165,14 +165,14 @@ cd ..
 #ldconfig
 #cd ..
 
-echo ====== Build and install alsa-plugins. ======
-tar -xjf alsa-plugins-1.1.6.tar.bz2
-cd alsa-plugins-1.1.6
-./configure --with-alsaconfigdir=/usr/share/alsa
-make 1>/dev/null
-make install 1>/dev/null
-ldconfig
-cd ..
+#echo ====== Build and install alsa-plugins. ======
+#tar -xjf alsa-plugins-1.1.6.tar.bz2
+#cd alsa-plugins-1.1.6
+#./configure --with-alsaconfigdir=/usr/share/alsa
+#make 1>/dev/null
+#make install 1>/dev/null
+#ldconfig
+#cd ..
 
 # Compile wheels
 cd /io/pyo/
