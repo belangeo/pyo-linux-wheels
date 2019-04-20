@@ -3,7 +3,7 @@ set -e -x
 
 
 # Install a system package required by our library
-yum install -y guile-devel zlib-devel #intltool dbus
+yum install -y guile-devel zlib-devel
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
@@ -77,15 +77,15 @@ tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
 ./autogen.sh
 # Not sure we really need CFLAGS here.
-./configure CFLAGS="-I../flac-1.3.2/include -I../libvorbis-1.3.6/include  -I../libogg-1.3.3/include" 1>/dev/null
+./configure
 make 1>/dev/null
 make install 1>/dev/null
 ldconfig
 cd ..
 
 echo ====== Build and install alsa-lib. ======
-tar -xjf alsa-lib-1.1.6.tar.bz2
-cd alsa-lib-1.1.6
+tar -xjf alsa-lib-1.1.8.tar.bz2
+cd alsa-lib-1.1.8
 ./configure --with-configdir=/usr/share/alsa
 make 1>/dev/null
 make install 1>/dev/null
