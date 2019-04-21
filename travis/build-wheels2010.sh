@@ -3,7 +3,7 @@ set -e -x
 
 
 # Install a system package required by our library
-yum install -y guile-devel zlib-devel gettext portaudio-devel portmidi-devel
+yum install -y guile-devel zlib-devel gettext jack-audio-connection-kit-devel portaudio-devel portmidi-devel
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
@@ -17,16 +17,16 @@ ln -s /opt/_internal/cpython-2.7.16-ucs4/bin/python /usr/bin/python
 
 cd /io/deps/
 
-echo ====== Build Berkley libdb. ======
-tar -xzf db-6.2.23.NC.tar.gz
-cd db-6.2.23.NC/build_unix
-../dist/configure --enable-compat185 --enable-dbm --disable-static --enable-cxx 1>/dev/null
-make 1>/dev/null
-make install 1>/dev/null
-ldconfig
-cd ../..
+#echo ====== Build Berkley libdb. ======
+#tar -xzf db-6.2.23.NC.tar.gz
+#cd db-6.2.23.NC/build_unix
+#../dist/configure --enable-compat185 --enable-dbm --disable-static --enable-cxx 1>/dev/null
+#make 1>/dev/null
+#make install 1>/dev/null
+#ldconfig
+#cd ../..
 
-echo ====== Build and install autogen. ======
+#echo ====== Build and install autogen. ======
 tar -xzf autogen-5.11.8.tar.gz
 cd autogen-5.11.8
 ./configure 1>/dev/null
@@ -77,8 +77,8 @@ tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
 ./autogen.sh
 ./configure
-make 1>/dev/null 1>/dev/null
-make install 1>/dev/null 1>/dev/null
+make 1>/dev/null
+make install 1>/dev/null
 ldconfig
 cd ..
 
@@ -146,14 +146,14 @@ cd ..
 #ldconfig
 #cd ..
 
-echo ====== Build and install jack2. ======
-tar -xzf jack2-1.9.12.tar.gz
-cd jack2-1.9.12
-./waf configure LDFLAGS="-lstdc++" 1>/dev/null
-./waf build 1>/dev/null
-./waf install 1>/dev/null
-ldconfig
-cd ..
+#echo ====== Build and install jack2. ======
+#tar -xzf jack2-1.9.12.tar.gz
+#cd jack2-1.9.12
+#./waf configure LDFLAGS="-lstdc++" 1>/dev/null
+#./waf build 1>/dev/null
+#./waf install 1>/dev/null
+#ldconfig
+#cd ..
 
 #echo ====== Build and install pulseaudio. ======
 #tar -xzf pulseaudio-12.2.tar.gz
