@@ -3,7 +3,7 @@ set -e -x
 
 
 # Install a system package required by our library
-yum install -y guile-devel zlib-devel gettext autogen portaudio-devel portmidi-devel
+yum install -y guile-devel zlib-devel gettext portaudio-devel portmidi-devel
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
@@ -26,14 +26,14 @@ make install 1>/dev/null
 ldconfig
 cd ../..
 
-#echo ====== Build and install autogen. ======
-#tar -xzf autogen-5.11.8.tar.gz
-#cd autogen-5.11.8
-#./configure 1>/dev/null
-#make 1>/dev/null
-#make install 1>/dev/null
-#ldconfig
-#cd ..
+echo ====== Build and install autogen. ======
+tar -xzf autogen-5.11.8.tar.gz
+cd autogen-5.11.8
+./configure 1>/dev/null
+make 1>/dev/null
+make install 1>/dev/null
+ldconfig
+cd ..
 
 #echo ====== Build and install cmake. ======
 #tar -xzf cmake-3.13.4.tar.gz
