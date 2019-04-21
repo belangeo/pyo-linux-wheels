@@ -3,7 +3,7 @@ set -e -x
 
 
 # Install a system package required by our library
-yum install -y guile-devel zlib-devel gettext-devel portaudio-devel portmidi-devel
+yum install -y guile-devel zlib-devel gettext autogen portaudio-devel portmidi-devel
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
@@ -77,8 +77,8 @@ tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
 ./autogen.sh
 ./configure
-make 1>/dev/null
-make install 1>/dev/null
+make 1>/dev/null 1>/dev/null
+make install 1>/dev/null 1>/dev/null
 ldconfig
 cd ..
 
