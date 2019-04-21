@@ -183,7 +183,7 @@ VERSIONS="cp35-cp35m"
 
 for version in $VERSIONS; do
     if [[ -d /opt/python/${version} ]]; then
-        /opt/python/${version}/bin/python setup.py build_ext --use-double --use-jack
+        /opt/python/${version}/bin/python setup.py build_ext --use-double --use-jack --jack-force-old-api
         /opt/python/${version}/bin/pip wheel . -w wheeltmp
     fi
 done
