@@ -65,8 +65,8 @@ cd ..
 echo ====== Build and install libflac. ======
 tar -xzf flac-1.3.2.tar.gz
 cd flac-1.3.2
-./autogen.sh 1>/dev/null
-./configure 1>/dev/null
+./autogen.sh
+./configure
 make 1>/dev/null
 make install 1>/dev/null
 ldconfig
