@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e -x
 
-
 # Install a system package required by our library
 yum install -y guile-devel zlib-devel
 
@@ -76,7 +75,6 @@ echo ====== Build and install libsndfile. ======
 tar -xzf libsndfile-1.0.28.tar.gz
 cd libsndfile-1.0.28
 ./autogen.sh
-# Not sure we really need CFLAGS here.
 ./configure
 make 1>/dev/null
 make install 1>/dev/null
@@ -91,24 +89,6 @@ make 1>/dev/null
 make install 1>/dev/null
 ldconfig
 cd ..
-
-#echo ====== Build and install alsa-utils. ======
-#tar -xjf alsa-utils-1.1.6.tar.bz2
-#cd alsa-utils-1.1.6
-#./configure 1>/dev/null
-#make 1>/dev/null
-#make install 1>/dev/null
-#ldconfig
-#cd ..
-
-#echo ====== Build and install alsa-oss. ======
-#tar -xjf alsa-oss-1.1.8.tar.bz2
-#cd alsa-oss-1.1.8
-#./configure 1>/dev/null
-#make 1>/dev/null
-#make install 1>/dev/null
-#ldconfig
-#cd ..
 
 # Build portmidi without java dependency from:
 # https://github.com/schollz/portmidi-1
@@ -156,24 +136,6 @@ cd jack2-1.9.12
 ldconfig
 cd ..
 
-#echo ====== Build and install pulseaudio. ======
-#tar -xzf pulseaudio-12.2.tar.gz
-#cd pulseaudio-12.2
-#./configure --without-caps
-#make 1>/dev/null
-#make install 1>/dev/null
-#ldconfig
-#cd ..
-
-#echo ====== Build and install alsa-plugins. ======
-#tar -xjf alsa-plugins-1.1.6.tar.bz2
-#cd alsa-plugins-1.1.6
-#./configure --with-alsaconfigdir=/usr/share/alsa
-#make 1>/dev/null
-#make install 1>/dev/null
-#ldconfig
-#cd ..
-
 # Compile wheels
 cd /io/pyo/
 
@@ -194,9 +156,3 @@ for whl in wheeltmp/*.whl; do
     auditwheel show "$whl"
     auditwheel repair "$whl" -w wheelhouse/
 done
-
-# Install packages and test
-#for PYBIN in /opt/python/*/bin/; do
-#    "${PYBIN}/pip" install python-manylinux-demo --no-index -f /io/wheelhouse
-#    (cd "$HOME"; "${PYBIN}/nosetests" pymanylinuxdemo)
-#done
