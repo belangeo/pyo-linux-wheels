@@ -6,14 +6,14 @@ env:
   - BUILD_COMMIT=master
 matrix:
   include:
-#  - sudo: required
-#    services:
-#    - docker
-#    env: DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64
   - sudo: required
     services:
     - docker
-    env: DOCKER_IMAGE=quay.io/pypa/manylinux1_i686 PRE_CMD=linux32
+    env: DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64
+#  - sudo: required
+#    services:
+#    - docker
+#    env: DOCKER_IMAGE=quay.io/pypa/manylinux1_i686 PRE_CMD=linux32
 install:
 - docker pull $DOCKER_IMAGE
 script:
