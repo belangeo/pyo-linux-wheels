@@ -119,14 +119,6 @@ make install 1>/dev/null
 ldconfig
 cd ..
 
-#echo ====== Build and install libffado. ======
-#tar -xzf libffado-2.3.0.tgz
-#cd libffado-2.3.0
-#scons
-#scons install
-#ldconfig
-#cd ..
-
 echo ====== Build and install jack2. ======
 tar -xzf jack2-1.9.12.tar.gz
 cd jack2-1.9.12
