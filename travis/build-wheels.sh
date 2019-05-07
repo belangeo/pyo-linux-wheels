@@ -133,12 +133,14 @@ cd /io/pyo/
 
 rm -rf wheeltmp
 
-VERSIONS="cp27-cp27m cp27-cp27mu cp35-cp35m cp36-cp36m cp37-cp37m"
+#VERSIONS="cp27-cp27m cp27-cp27mu cp35-cp35m cp36-cp36m cp37-cp37m"
+VERSIONS="cp27-cp27m cp27-cp27mu"
 
 for version in $VERSIONS; do
     if [[ -d /opt/python/${version} ]]; then
         /opt/python/${version}/bin/python setup.py bdist_wheel --use-double --use-jack
         /opt/python/${version}/bin/pip wheel . -w wheeltmp
+        rm -rf build/
     fi
 done
 
