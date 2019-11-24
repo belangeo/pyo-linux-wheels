@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e -x
 
-
 # Install a system package required by our library
 yum install -y guile-devel zlib-devel gettext portaudio-devel portmidi-devel
 
@@ -26,7 +25,7 @@ make install 1>/dev/null
 ldconfig
 cd ../..
 
-#echo ====== Build and install autogen. ======
+echo ====== Build and install autogen. ======
 tar -xzf autogen-5.11.8.tar.gz
 cd autogen-5.11.8
 ./configure 1>/dev/null
@@ -91,14 +90,6 @@ make install 1>/dev/null
 ldconfig
 cd ..
 
-#echo ====== Build and install libffado. ======
-#tar -xzf libffado-2.3.0.tgz
-#cd libffado-2.3.0
-#scons
-#scons install
-#ldconfig
-#cd ..
-
 echo ====== Build and install jack2. ======
 tar -xzf jack2-1.9.12.tar.gz
 cd jack2-1.9.12
@@ -113,12 +104,11 @@ cd /io/pyo/
 
 rm -rf wheeltmp
 
-#VERSIONS="cp27-cp27m cp27-cp27m cp35-cp35m cp36-cp36m cp37-cp37m"
-VERSIONS="cp35-cp35m"
+VERSIONS="cp27-cp27m cp27-cp27m cp35-cp35m cp36-cp36m cp37-cp37m cp38-cp38"
 
 for version in $VERSIONS; do
     if [[ -d /opt/python/${version} ]]; then
-        /opt/python/${version}/bin/python setup.py build_ext --use-double --use-jack
+        /opt/python/${version}/bin/python setup.py bdist_wheel --use-double --use-jack
         /opt/python/${version}/bin/pip wheel . -w wheeltmp
     fi
 done
