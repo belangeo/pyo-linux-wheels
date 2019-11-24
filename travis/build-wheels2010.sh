@@ -11,8 +11,10 @@ PKG_CONFIG_PATH=/usr/lib/pkgconfig:$PKG_CONFIG_PATH
 export ACLOCAL_PATH=/usr/share/aclocal
 
 # python version in /usr/bin is 2.4, link to 2.7 instead.
-rm /usr/bin/python
-ln -s /opt/_internal/cpython-2.7.16-ucs4/bin/python /usr/bin/python
+#rm /usr/bin/python
+#ln -s /opt/_internal/cpython-2.7.16-ucs4/bin/python /usr/bin/python
+echo ============== print python version =====================
+python -V
 
 cd /io/deps/
 
@@ -104,7 +106,7 @@ cd /io/pyo/
 
 rm -rf wheeltmp
 
-VERSIONS="cp27-cp27m cp27-cp27m cp35-cp35m cp36-cp36m cp37-cp37m cp38-cp38"
+VERSIONS="cp27-cp27m cp27-cp27mu cp35-cp35m cp36-cp36m cp37-cp37m cp38-cp38"
 
 for version in $VERSIONS; do
     if [[ -d /opt/python/${version} ]]; then
