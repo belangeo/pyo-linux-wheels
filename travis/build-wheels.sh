@@ -10,10 +10,12 @@ PKG_CONFIG_PATH=/usr/lib/pkgconfig:$PKG_CONFIG_PATH
 
 export ACLOCAL_PATH=/usr/share/aclocal
 
+echo ====== List python versions installed. ======
 ls /opt/_internal/
+
 # python version in /usr/bin is 2.4, link to 2.7 instead.
 rm /usr/bin/python
-ln -s /opt/_internal/cpython-2.7.16-ucs4/bin/python /usr/bin/python
+ln -s /opt/_internal/cpython-2.7.17-ucs4/bin/python /usr/bin/python
 
 cd /io/deps/
 
