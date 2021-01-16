@@ -106,7 +106,7 @@ cd /io/pyo/
 
 rm -rf wheeltmp
 
-VERSIONS="cp27-cp27m cp27-cp27mu cp35-cp35m cp36-cp36m cp37-cp37m cp38-cp38"
+VERSIONS="cp36-cp36m cp37-cp37m cp38-cp38 cp39-cp39"
 
 for version in $VERSIONS; do
     if [[ -d /opt/python/${version} ]]; then
