@@ -4,12 +4,17 @@ env:
   global:
   - REPO_DIR=pyo
   - BUILD_COMMIT=master
+  - secure: iP0HPgb7anuSiDDSRusflZnp8lZsioWJKYpRXJ5iWGxkWYFykYKTIAXqDvgZAhcrQo6QgsFVzLvVywvnuEH9a2ILJ0kHlK7qc/7OSB77vfEOUsyYvCSAFzi4gWZORkwV5tjB2csAaODyknSivvGSZ4mS5NyVumTFaz/gB1PkIU4yOUjd05npiuMGr1zNR1+geGayujq5UAAthAvljfHq/305mRjJZTAIi0Ri/kn3CBShAVKurB4kbaM6skJPY7US5GKbYcdRFJVKJKp/t5NGPcMpX8taWBC+k2F9HYzOXjBJ+NrclMDxf507vc7u1bdL10ipz3J5QYr3v51fUVcOO/XH+lk99c9O49kRg68BGn8/34ulsvO4NJN3zw8rjLcRn7gAPbrhEHX2p+M3S3qiwfNI09fTUbVkq8QBsR8JEF1qhdmOVDU4VFX5iU+c/uTVncNqANI74NN01+3CW2FjeEks2yt3fOONK1wti+vWVCVsGw7QRbsYCWyeciBC2rO8GxR6CmEMZgcv33per5mkBWWol6K8qL31d3AL5evmSVG7kPrBBj6M+P3zlw7gFrqclGKKWScwIhLIhgQjC42gpEDtWbnLKrUP49SzsFrsP9gdK4gqxmNlKYsMfQcZUXOaWeidAh9oCIKOgFotshVVM2xPUCiBHmJemLs38qwlZfU=
 matrix:
   include:
   - sudo: required
     services:
     - docker
     env: DOCKER_IMAGE=quay.io/pypa/manylinux2010_x86_64
+  - sudo: required	
+    services:	
+    - docker	
+    env: DOCKER_IMAGE=quay.io/pypa/manylinux2010_i686 PRE_CMD=linux32
 install:
 - docker pull $DOCKER_IMAGE
 script:
@@ -19,11 +24,15 @@ script:
 deploy:
   provider: releases
   skip_cleanup: true
+  draft: true
   api_key:
     secure: aWfOmMWImaUOGg5MBLKz/Pvxi8AUYoxjJtg8RQSdZgFXT1bzERLwBpMIX8+9tVErrMCbryo8vuTRviElnD5vLRyRmXgO4cyd6CXw1pN8ks44K4ATywLyE51hXjGwxfQch0EJCvA0XFpTbuvL2sbqAHpowAWD+BNak4YTxpeojBZ/IwxKJJ3m/LbbGGxXRImQe2LQnUV/lLIgtXWFMNSUPvwC0cKq/KupxnKzo6CqPQaXuHu6WYyKXGnbMhPin65lOAGMnV3qQL81nFpropX1gmU2LIku5gkgu4Q+Vg3I/MOo1b6RNsQQ8Um3NIdNrCUjFMvp+j9FDr8svrhSj6nPV/AkaSsb9TYWYD5S3OxQbla+K7xSuoSjsKeopjM+LvWfHfxXhXoI2fPTKIGvMoSnj7nw3KPo2jdML7vhy1PJMHDHdHvfR/UfwQJc5W5Rb1QBReo8+/qRXvvG4E7i11CJgAIiw67L9zHk4AgbhifGR8uds9HLLiJ6LAvOkMCAqjIsuErsPZvfvh4cyNdRo9pCQyq1kL5gxX7RG8Wrmnqw7VYhpe2LqhiacLpPSJpF1++LKEYN2tNkcAYTf6Bj1kcPPruBZs/gX6vaKewUs9e4knKWEdmwXnHA6um1BrvEY0Cajz9iRY0Dc1gUJFwFHi04rxczb0eunuobPutyn2Vg6zk=
-  file_glob: true   
+  file_glob: true
   file: pyo/wheelhouse/*whl
   overwrite: true
   on:
     repo: belangeo/pyo-linux-wheels
     all_branches: true
+branches:
+  except:
+  - "/^untagged/"
