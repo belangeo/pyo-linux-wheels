@@ -2,7 +2,7 @@
 set -e -x
 
 # Install a system package required by our library
-yum install -y guile-devel zlib-devel gettext portaudio-devel portmidi-devel libsndfile-devel alsa-lib-devel autogen libdb-devel jack-audio-connection-kit
+yum install -y guile-devel zlib-devel gettext portaudio-devel portmidi-devel libsndfile-devel alsa-lib-devel autogen libdb-devel jack-audio-connection-kit-devel
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
