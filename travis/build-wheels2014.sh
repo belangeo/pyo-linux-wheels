@@ -2,7 +2,7 @@
 set -e -x
 
 # Install a system package required by our library
-yum install -y guile-devel zlib-devel gettext portaudio-devel portmidi-devel libsndfile-devel alsa-lib-devel autogen libdb-devel waf
+yum install -y guile-devel zlib-devel gettext portaudio-devel portmidi-devel libsndfile-devel alsa-lib-devel autogen libdb-devel
 
 PATH=/usr/lib:$PATH
 LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
@@ -94,8 +94,8 @@ ldconfig
 cd ..
 
 echo ====== Build and install jack2. ======
-tar -xzf jack2-releases-1.9.21.tar.gz
-cd jack2-releases-1.9.21
+tar -xzf jack2-1.9.12.tar.gz
+cd jack2-1.9.12
 ./waf configure LDFLAGS="-lstdc++" 1>/dev/null
 ./waf build 1>/dev/null
 ./waf install 1>/dev/null
