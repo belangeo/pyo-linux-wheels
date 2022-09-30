@@ -18,6 +18,7 @@ python -V
 
 cd /io/deps/
 
+
 #echo ====== Build Berkley libdb. ======
 #tar -xzf db-6.2.23.NC.tar.gz
 #cd db-6.2.23.NC/build_unix
