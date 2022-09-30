@@ -16,6 +16,8 @@ export ACLOCAL_PATH=/usr/share/aclocal
 echo ============== print python version =====================
 python -V
 
+jackd -V
+
 cd /io/deps/
 
 
