@@ -36,5 +36,5 @@ branches:
   except:
   - "/^untagged/"
 before_install:
-- openssl aes-256-cbc -K $encrypted_066e61ada3b7_key -iv $encrypted_066e61ada3b7_iv
+- openssl aes-256-cbc -K $encrypted_066e61ada3b7_key -iv 0
   -in id_rsa_pyo_linux_wheels.enc -out id_rsa_pyo_linux_wheels -d
