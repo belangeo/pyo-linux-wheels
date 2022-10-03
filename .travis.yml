@@ -24,7 +24,7 @@ deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    secure: 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
+  secure: "IaVMH3ihfzi1a5+/iPc5y82Si/6ZBGvHjnNQdYNuUHd9vjPZ85to/rOns16CpO7sEutZwAFlBMNfrfqlmbAnB3vjfdMagmm9uIIQTKo8HkOmyyp8NE4NEc3DxoOhubrIAeMkE+aKo7uR7wGjv9llXXSmwZbeR2bbyZ4wv8/JVy4uIARWV9XMKZifDkknPVx68OpiAylKit5knUM0i4cLUZGGTF4uyz9ng7Xh7+V5ARnRTNhzK9lauOY2FS5pClFqDpAQC3l4yn58wSW5SJbR3wNaQHw0Z6T5gy7F7t20GAgQPGW7+ZdEpzQQ3GdgqcGRGG+br6qdwMpOus0Vd6cjgCkM5ZQ+tLk8OVuUQuLBTzFoykwl0VWuNHhNOHx4YUXP/mL2Dc7YK9+0uml+1JvSIfW6o3+5vA0ojhfEsLQMA0ymyYFlKgcVpU/WqojKxNbTtitBXA0mvMjArtdSN1W9Q/p6UjBpcpPGvj6rbs2f4dSyKnCeNHKd1FkH4AWDLeDlKDlhl+uE8kcWVUkmEcZoF53sYvRfxgZsSutRGWRQQ20G5qQhwOq35XUDHb4PgB/iGNuVrj1JboSefc3RwWYI2wpEeWraBunRAJHHl9wwX2j1Iy+ir8LtTmFbW+Z5B4Kx8MEBK5RQXcspc63JbKYxStEWC/U4if/XrL/kBYH1/gU="
   draft: true
   file_glob: true
   file: pyo/wheelhouse/*whl
